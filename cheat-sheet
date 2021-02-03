@@ -13,3 +13,7 @@ $ git commit -m "comment about what you are doing"
 $ git push origin your-branch
 # Pushes the changes in your local repository up to the remote repository you specified as the origin
 
+# create a new branch to work in
+$ git branch newbranch
+# start working in your new branch
+$ git switch newbranch
