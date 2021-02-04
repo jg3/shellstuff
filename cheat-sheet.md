@@ -27,3 +27,9 @@ create a new branch to work in
 
 > $ git switch newbranch
 start working in your new branch
+
+More:
+> $ git branch --delete
+> $ git branch --verbose
+> $ git branch --list
+> $ git branch --show-current
