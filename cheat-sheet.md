@@ -1,5 +1,5 @@
 # My git cheat-sheet
-There are many like it, but this one is mine!
+*There are many like it, but this one is mine!*
 
 Make a copy of a git repo on the local system
 > $ git clone https://github.com/jg3/UbuntuUpdates
