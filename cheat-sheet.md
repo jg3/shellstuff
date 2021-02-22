@@ -2,7 +2,7 @@
 *There are many like it, but this one is mine!*
 
 Make a copy of a git repo on the local system
-> $ git clone https://github.com/jg3/UbuntuUpdates
+> % git clone https://github.com/jg3/shellstuff
 
 
 ### To add a new file to a git repository ...
@@ -18,26 +18,26 @@ Make a copy of a git repo on the local system
 
 
 Check status if you have changes to be committed or commits to be pushed. Do it a lot:
-> $ git status
+> % git status
 
 Synchronize the local repository with the remote, particularly when starting to work on a project, or before pushing up changes to a project:
-> $ git pull
+> % git pull
 
 Adds the file (or all, recursively) to the local repo and stages for commit:
-> $ git add <fiile>
-> $ git add .
+> % git add filename
+> % git add .
 
 To un-stage a file:
-> $git reset HEAD <file>
+> %git reset HEAD filename
 
 to un-do changes made locally:
-> $ git restore <file>
+> % git restore filename
 
 Commit the tracked changes and prepares them to be pushed to a remote repository.
-> $ git commit -m "comment about what you are doing"
+> % git commit -m "comment about what you are doing"
 
 Pushes the changes in your local repository up to the remote repository you specified as the origin:
-> $ git push origin your-branch
+> % git push origin your-branch
 
 
 -----
@@ -47,16 +47,16 @@ concepts: https://git-scm.com/about
 commands: https://git-scm.com/docs/git-branch
 
 create a new branch to work in
-> $ git branch newbranch
+> % git branch newbranch
 
 start working in your new branch
-> $ git switch newbranch
+> % git switch newbranch
 
 More:
-> $ git branch --delete
+> % git branch --delete
 >
-> $ git branch --verbose
+> % git branch --verbose
 >
-> $ git branch --list
+> % git branch --list
 >
-> $ git branch --show-current
+> % git branch --show-current
