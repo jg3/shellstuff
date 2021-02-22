@@ -15,12 +15,17 @@ alias ll="ls -alh"
 alias ec2="ssh -i \"~/.ssh/jamegill_aws_vpc001.pem\" -l ec2-user "
 alias azure="ssh -i ~/.ssh/jamegill-azure-2020.pem jamegill@23.96.60.158"
 
-
-# This loads nvm
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
-# This loads nvm bash_completion
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  
+# Type "nvm" to enable the nvm command Node Version Manager
+# doing it this way avoids sourcing 4123 lines every invocation
+# This sets the NVM directory
+# .. then loads nvm the Node.js version manager
+# .. then loads nvm bash_completion
+alias nvm='
+unalias nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+echo "nvm loaded." '
 
 
 ## Prompt stuff I pretty much blindly copied from:
@@ -34,5 +39,4 @@ alias azure="ssh -i ~/.ssh/jamegill-azure-2020.pem jamegill@23.96.60.158"
 #PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{240}%1~%f%b %# '
 PROMPT='%(?.%F{green}%n.%F{red}?%?)%f %B%F{240}%5~%f%b %# '
 #RPROMPT='%F{240}%*%f'
-#RPROMPT='%(?.%F{240}%*.%F{red}%*)%f'
 RPROMPT='%(?.%F{240}%*.%F{red}%K{white}%*)%f%k'
