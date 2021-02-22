@@ -15,7 +15,7 @@ alias ll="ls -alh"
 alias ec2="ssh -i \"~/.ssh/jamegill_aws_vpc001.pem\" -l ec2-user "
 alias azure="ssh -i ~/.ssh/jamegill-azure-2020.pem jamegill@23.96.60.158"
 
-# Type "nvm" to enable the nvm command Node Version Manager
+# Type "nvm" to load Node Version Manager, see HTTP://nvm.sh
 # doing it this way avoids sourcing 4123 lines every invocation
 # This sets the NVM directory
 # .. then loads nvm the Node.js version manager
