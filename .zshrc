@@ -34,4 +34,5 @@ alias azure="ssh -i ~/.ssh/jamegill-azure-2020.pem jamegill@23.96.60.158"
 #PROMPT='%(?.%F{green}√.%F{red}?%?)%f %B%F{240}%1~%f%b %# '
 PROMPT='%(?.%F{green}%n.%F{red}?%?)%f %B%F{240}%5~%f%b %# '
 #RPROMPT='%F{240}%*%f'
-RPROMPT='%(?.%F{240}%*.%F{red}%*)%f'
+#RPROMPT='%(?.%F{240}%*.%F{red}%*)%f'
+RPROMPT='%(?.%F{240}%*.%F{red}%K{white}%*)%f%k'
