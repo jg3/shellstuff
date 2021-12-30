@@ -13,4 +13,11 @@ export PATH
 # set a teal-colored prompt
 PS1="\[\033[36m\][\$(date +%H:%M:%S)][\u@\h:\w]$\[\033[0m\] "
 
-echo -n "Screens: " && screen -Q windows && echo
+# if this is NOT a screen, tell me what screens are running.
+case "$TERM" in
+        screen*)
+        ;;
+                *)
+        echo -n "Screens: " && screen -Q windows && echo
+        ;;
+            esac
