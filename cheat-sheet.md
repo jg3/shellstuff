@@ -39,6 +39,9 @@ Commit the tracked changes and prepares them to be pushed to a remote repository
 Pushes the changes in your local repository up to the remote repository you specified as the origin:
 > % git push origin your-branch
 
+to 'git push' via ssh do:
+> % git remote set-url origin git@github.com:/user/repo
+passphrase isn't strong enough, but memorable for me.
 
 -----
 ## Branches!
