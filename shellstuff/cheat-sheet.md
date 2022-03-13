@@ -44,7 +44,11 @@ to 'git push' via ssh do:
 passphrase isn't strong enough, but memorable for me.
 
 Remeber, you need the _github-key in ~/.ssh/ on your lappy
-and you'll need to use -i ~/.ssh/_github-key in each ssh command 
+ordinarily you'll need to use -i ~/.ssh/_github-key in each ssh command 
+but for git push it will be better to create a ~/.ssh/config file and include something like this
+
+host github.com
+   Identityfile ~/.ssh/_github-key 
 
 -----
 ## Branches!
