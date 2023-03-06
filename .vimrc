@@ -1,12 +1,24 @@
+
+" jg3 version 202303 stolen bits from various places
+" 
+
+" Get the Vim color scheme file from this guy: https://ethanschoonover.com/solarized/ and put it where it goes:
+"  mkdir -p ~/.vim/colors/
+"  wget  https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim -P  ~/.vim/colors/.
+
+" Color scheme (terminal)
+set t_Co=256
+#set background=light
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
+" the next line lets your terminal's background color show through;
+" wich is great if it's black but probably conflicts with syntax highlighting otherwise
+"let g:solarized_termtrans=1
+
+
 set number
 set paste
-
-" Use case insensitive search, except when using capital letters
-set ignorecase
-set smartcase
-
-" Allow backspacing over autoindent, line breaks and start of insert action
-set backspace=indent,eol,start
 
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
@@ -25,12 +37,9 @@ set expandtab
 "set shiftwidth=4
 "set tabstop=4
 
-" https://ethanschoonover.com/solarized/
-" Color scheme (terminal)
-set t_Co=256
-set background=dark
-let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
-" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-" in ~/.vim/colors/ and uncomment:
-colorscheme solarized
+" Use case insensitive search, except when using capital letters
+set ignorecase
+set smartcase
+
+" Allow backspacing over autoindent, line breaks and start of insert action
+set backspace=indent,eol,start
