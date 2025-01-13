@@ -1,8 +1,6 @@
 
-
 # Keep aliases organized in another file, ~/.aliases -> ~/shellstuff/.aliases
 source .aliases
-
 
 # Type "nvm" to load Node Version Manager, see HTTP://nvm.sh
 # doing it this way avoids sourcing 4123 lines every invocation
@@ -21,7 +19,7 @@ source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
 source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.3.5 # run chruby to see actual version
 
-## SSH-agent stuff
+## SSH-agent stuff -- SHOULD THIS GO AWAY WITH 1Password??
 # 1)
 # This makes the ssh-agent shared across all shells (that run this file**)
 # which means you only have to unlock a key once.
@@ -38,7 +36,7 @@ if ( ssh-add -l &> /dev/null )
 then
   for k in `ssh-add -l | wc -l`
   do
-    echo "The ssh-agent has ${k} identites added. Use 'ssh-add -l' to list."
+    echo "The ssh-agent has ${k} identities added. Use 'ssh-add -l' to list."
   done
 else
   echo "The ssh-agent has no identittes. Use 'keys-please' to ssh-add some."
@@ -50,7 +48,7 @@ fi
 # is probably better, but doesn't apply to the gcloud ssh alias (does it?)
 
 ## Prompt stuff I pretty much blindly copied from:
-#### https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
+## https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
 # This creates
 #	- a green username if the previous command's output was success
 #	- a red output of the exit code if the previous command failed
@@ -62,7 +60,6 @@ PS1='%(?.%F{green}%n.%F{red}?%?)%f %B%F{240}%2~%f%b %# '
 #RPROMPT='%F{240}%*%f'
 RPROMPT='%(?.%F{240}%*.%F{red}%K{white}%*)%f%k'
 
-
 # the following is for `compdef`, a package that enables autocompletions (see op below)
 # see: https://unix.stackexchange.com/questions/339954/zsh-command-not-found-compinstall-compinit-compdef
 autoload -Uz compinit
@@ -72,7 +69,9 @@ compinit -i
 # see:  https://developer.1password.com/docs/cli/get-started/
 eval "$(op completion zsh)"; compdef _op op
 # 1password plugin for github credentials
-if [ -f '/Users/jamegill/.config/op/plugins.sh' ]; then source /Users/jamegill/.config/op/plugins.sh
+if [ -f '/Users/jamegill/.config/op/plugins.sh' ]; then
+  source /Users/jamegill/.config/op/plugins.sh
+fi
 
 # iTerm2 shell integration stuff
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
@@ -88,7 +87,6 @@ function badge_prompt() {
 function badgep() {
   badge_prompt `badge`
 }
-
 
 # zsh option to show a command pulled from history before executing it
 # from https://zsh.sourceforge.io/Guide/zshguide02.html#l16
@@ -115,3 +113,4 @@ autoload -U +X bashcompinit && bashcompinit
 
 # Tab completion for `aws` command
 complete -C '/usr/local/bin/aws_completer' aws
+
