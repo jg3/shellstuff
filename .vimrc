@@ -7,17 +7,19 @@
 "  wget  https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim -P  ~/.vim/colors/.
 
 " Color scheme (terminal)
-set t_Co=256
-#set background=light
-set background=dark
 colorscheme solarized
+set t_Co=256
+set background=light
+"set background=dark
 let g:solarized_termcolors=256
 " the next line lets your terminal's background color show through;
-" wich is great if it's black but probably conflicts with syntax highlighting otherwise
-"let g:solarized_termtrans=1
+" which is great if it's black but probably conflicts with syntax highlighting otherwise
+let g:solarized_termtrans=1
 
 
+" enable line numbers
 set number
+" enable sensible behavior when pasting in code with intents
 set paste
 
 " When opening a new line and no filetype-specific indenting is enabled, keep
@@ -30,6 +32,12 @@ set autoindent
 " Do not change 'tabstop' from its default value of 8 with this setup.
 set shiftwidth=4
 set softtabstop=4
+set expandtab
+
+" Indentation settings for using 2 spaces instead of tabs.
+" Do not change 'tabstop' from its default value of 8 with this setup.
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 
 " Indentation settings for using hard tabs for indent. Display tabs as

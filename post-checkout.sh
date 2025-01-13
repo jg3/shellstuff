@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# here's the gist, if you want to do it manually:
+# Here's the gist, if you want to do it manually:
 
 # ln -s shellstuff/.ssh .ssh
 # ln -s shellstuff/.git .git
@@ -9,46 +9,54 @@
 # ln -s shellstuff/.screenrc .screenrc
 # ln -s shellstuff/.vimrc .vimrc
 # ln -s shellstuff/.zshrc .zshrc
-# chmod -R 0600 ~/.ssh
 
-# list file (and directory) names *without the leading dot* here:
-DOTFILES="ssh, git, gitconfig, gitignore, screenrc, vimrc, zshrc"
+# chmod -R 0600 ~/.ssh/
+# chmod 0700 ~/.ssh
+# chmod -R 0644 ~/.ssh/*.pub
 
-# -- don't change anything below this line --
+# List file (and directory) names *without the leading dot* here:
+DOTFILES="ssh git gitconfig gitignore screenrc vimrc zshrc"
 
-DATE=`date "+%Y%m%d%__%H%M%S"`
+# -- Don't change anything below this line --
 
-# if you are not doing this in ~/shellstuff/ you should be.
-# might make this more flexible in the future. or not.
-if [ $HOME/shellstuff != $PWD ]
-then
-	echo "Please move this whole directory to ~/shellstuff and try again."
-	exit 1
+DATE=$(date "+%Y%m%d__%H%M%S")
+
+# Ensure we are running from ~/shellstuff
+if [[ $HOME/shellstuff != $PWD ]]; then
+    echo "Please move this whole directory to ~/shellstuff and try again."
+    exit 1
 else
-	echo "confirmed we are running from ~/shellstuff ... proceeding."
+    echo "Confirmed we are running from ~/shellstuff ... proceeding."
 fi
 
-for f in [ $DOTFILES ]
-do
-	# check to see if the file exists already
-	if [ -f "~/.$f" ]
-		echo -n "Backing up: "
-		do cp -v ~/.$f ~/.$f.old.{$DATE}
-	fi
-	ln -v -s ~/shellstuff/.$f ~/
+for f in $DOTFILES; do
+    # Check to see if the file exists already
+    if [ -f "$HOME/.$f" ]; then
+        echo "Backing up: $HOME/.$f"
+        cp -v "$HOME/.$f" "$HOME/.$f.old.$DATE"
+    fi
 
-###
-#  chmod -R 0600 ~/.ssh
-###
-# Desired permission standard
-STANDARD="600"  
+    # Create symbolic link
+    ln -v -s "$HOME/shellstuff/.$f" "$HOME/"
+done
 
-# Check actual config file permission  
-ACTUAL=$(stat -c %a ~/.ssh/config)
+# Set permissions for ~/.ssh directory and its contents
+if [ -d "$HOME/.ssh" ]; then
+    echo "Setting permissions for ~/.ssh and its contents..."
 
-if [ "$ACTUAL" -ne "$STANDARD" ]; then
-  # Reapply permission standard
-  chmod 600 ~/.ssh/config  
+    # Set recursive permissions for all files in ~/.ssh to 0600
+    chmod -R 0600 "$HOME/.ssh"
+
+    # Set permissions for the ~/.ssh directory itself to 0700
+    chmod 0700 "$HOME/.ssh"
+
+    # Set recursive permissions for all .pub files in ~/.ssh to 0644
+    find "$HOME/.ssh" -type f -name "*.pub" -exec chmod 0644 {} \;
+
+    echo "Permissions for ~/.ssh have been updated."
+else
+    echo "Directory ~/.ssh does not exist. Skipping permission updates."
 fi
 
-echo " -- $1 complete. -- "
+echo " -- Script complete. -- "
+
