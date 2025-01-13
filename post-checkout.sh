@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Just some setup steps.  Assumes you decrypted & extracted the ssh_stuff.age file
+
 # Here's the gist, if you want to do it manually:
 
 # ln -s shellstuff/.ssh .ssh

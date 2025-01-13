@@ -1,11 +1,11 @@
-
+# 2025-01-12 update: remove commented-out SSH stuff after 2025-08-01
 ## ALIASES FOR FUNKY STUFF
 
 DNS_SERVER_ADDRESS="10.39.6.253"
 alias 3906hosts='for a in {254..1}; do ans="`dig -x 10.39.6.$a @$DNS_SERVER_ADDRESS +short +norecurse`"; if [ $ans ]; then echo -e "10.39.6.$a\t$ans";else echo -e "10.39.6.$a\t__"; unset ans; unset a; fi; done'
 
 # What is my public IP?
-alias MyIP="dig +short myip.opendns.com @resolver1.opendns.com"
+alias myIP="dig +short myip.opendns.com @resolver1.opendns.com"
 alias myip="curl http://ipecho.net/plain; echo"
 
 # sometimes you just want to hear the time
@@ -16,9 +16,6 @@ saytime () {
   unset h
   unset m
 }
-
-
-
 
 ## ALIASES FOR COMMANDS
 alias tree="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
@@ -37,27 +34,27 @@ alias json-lint="python3 -mjson.tool "
 
 ###  Azure stuff
 # usage: azure <ip/host>
-alias azure="ssh -i ~/.ssh/jamegill-azure-2020.pem -l jamegill "
+#alias azure="ssh -i ~/.ssh/jamegill-azure-2020.pem -l jamegill "
 
 ### AWS Stuff
 # usage: dev
-alias dev='ssh -i "~/.ssh/jamegill.LightsailDefaultKey-us-east-1.pem" -l bitnami ghost-1.thirtynineohsix.com'
-alias ec2='ssh -i "~/.ssh/jamegill_aws_vpc001.pem" -l ec2-user '
+#alias dev='ssh -i "~/.ssh/jamegill.LightsailDefaultKey-us-east-1.pem" -l bitnami ghost-1.thirtynineohsix.com'
+#alias ec2='ssh -i "~/.ssh/jamegill_aws_vpc001.pem" -l ec2-user '
 
 #### AWS Stuff for KB
-alias kb-aws='ssh -i "~/.ssh/KBellaevents-AWS-DefaultVPC-KeyPair202111.pem" -l ec2-user '
+#alias kb-aws='ssh -i "~/.ssh/KBellaevents-AWS-DefaultVPC-KeyPair202111.pem" -l ec2-user '
 alias kb-ls='ssh -i "~/.ssh/KBellaevents-AWS-DefaultVPC-KeyPair202111.pem" -l bitnami'
-alias kb-aws-wp='ssh -i ".ssh/KBellaevents-AWS-DefaultVPC-KeyPair202111.pem" bitnami@ec2-52-91-59-168.compute-1.amazonaws.com'
+#alias kb-aws-wp='ssh -i ".ssh/KBellaevents-AWS-DefaultVPC-KeyPair202111.pem" bitnami@ec2-52-91-59-168.compute-1.amazonaws.com'
 alias frenchdoor="kb-ls frenchdoorevents.com"
 alias kbellevents="kb-ls kbellaevents.com"
 alias kbv3="kb-ls v3.kbellaevents.com"
 
 
 # Soon to be deprecated (after Nov 2023)
-alias sa-aws='ssh -i ~/.ssh/jamegill-sa-aws-ec2-key-20231110.pem'
-alias sa-ubuntu="sa-aws -l ubuntu 54.89.137.29"
-alias sa-vfmc="sa-aws -l admin 52.205.252.90"
+#alias sa-aws='ssh -i ~/.ssh/jamegill-sa-aws-ec2-key-20231110.pem'
+#alias sa-ubuntu="sa-aws -l ubuntu 54.89.137.29"
+#alias sa-vfmc="sa-aws -l admin 52.205.252.90"
 
 # deprecated
 #alias lightsail='ssh -i "~/.ssh/jamegill.LightsailDefaultKey-us-east-1.pem" -l bitnami '
-alias plus='ssh -i "~/.ssh/jamegill_aws_vpc001.pem" -l ec2-user 10.39.1.10 '
+#alias plus='ssh -i "~/.ssh/jamegill_aws_vpc001.pem" -l ec2-user 10.39.1.10 '
