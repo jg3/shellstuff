@@ -115,4 +115,3 @@ autoload -U +X bashcompinit && bashcompinit
 
 # Tab completion for `aws` command
 complete -C '/usr/local/bin/aws_completer' aws
-

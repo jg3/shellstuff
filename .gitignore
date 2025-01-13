@@ -1,1 +1,10 @@
+# Because nobody needs to see that
 .DS_Store
+
+# Ignore all files in .ssh not excluded below
+.ssh/*
+# Ensure our ssh config file does come along
+!.ssh/config
+# Ensure directories themselves are not ignored
+!.ssh/**/
+
